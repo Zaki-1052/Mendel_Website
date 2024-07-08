@@ -158,6 +158,16 @@ nav ul li a:hover {
   margin-top: 1.5em;
 }
 
+.first-title a {
+  text-decoration: none;
+  color: black;
+}
+
+.first-title a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
 .book-title {
   font-family: 'Impact';
   font-size: 44px;
@@ -166,6 +176,16 @@ nav ul li a:hover {
   margin-bottom: 1em;
   font-weight: bold;
   text-align: center;
+}
+
+.book-title a {
+  text-decoration: none;
+  color: rgb(255, 162, 0);
+}
+
+.book-title a:hover {
+  text-decoration: underline;
+  color: rgb(255, 162, 0);
 }
 
 .paragraph {
@@ -253,7 +273,7 @@ footer {
   color: black;
   text-align: center;
   margin-bottom: 0.5em;
-  width: 85%; /* Adjust the width of the text container to match the image width */
+  width: 80%; /* Adjust the width of the text container to match the image width */
   margin-left: auto;
   margin-right: auto;
 }
