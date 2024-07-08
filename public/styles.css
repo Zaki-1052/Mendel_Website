@@ -237,7 +237,7 @@ footer {
 
 .about-paragraph {
   font-family: 'Futura', Arial, sans-serif;
-  font-size: 32px;
+  font-size: 31.5px;
   color: black;
   line-height: 1.15;
   margin-bottom: 1em;
@@ -260,7 +260,7 @@ footer {
 
 .about-header-image {
   display: block;
-  width: 80%;
+  width: 82%;
   height: auto;
   margin: 0 auto 2rem;
   border: 3px solid black; /* Adjust the thickness and color of the border as needed */
@@ -273,7 +273,7 @@ footer {
   color: black;
   text-align: center;
   margin-bottom: 0.5em;
-  width: 80%; /* Adjust the width of the text container to match the image width */
+  width: 85%; /* Adjust the width of the text container to match the image width */
   margin-left: auto;
   margin-right: auto;
 }
@@ -995,7 +995,7 @@ nav ul li a {
 }
 
 .about-paragraph {
-  font-size: 23.4px;
+  font-size: 23px;
 }
 
 
