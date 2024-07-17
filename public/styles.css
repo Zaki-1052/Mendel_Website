@@ -410,12 +410,6 @@ footer {
   font-size: 1.25rem;
 }
 
-.container-contact {
-  padding: 2rem;
-  font-family: 'Futura';
-  font-size: 1rem;
-}
-
 
 .contact-picture {
   display: flex;
@@ -517,7 +511,7 @@ button {
 
 .privacy-statement {
   text-align: center;
-  font-size: 1em; /* adjust size as needed */
+  font-size: 0.7em; /* adjust size as needed */
 }
 
 .social-media {
