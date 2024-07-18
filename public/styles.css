@@ -190,7 +190,7 @@ nav ul li a:hover {
 
 .paragraph {
   font-family: 'Futura', sans-serif;
-  font-size: 24.5px;
+  font-size: 20px;
   color: black;
   line-height: 1.15;
   margin-bottom: 1em;
@@ -209,8 +209,8 @@ nav ul li a:hover {
 
 
 .owner-photo {
-  max-width: 86%;
-  max-height: 86%;
+  max-width: 82%;
+  max-height: 82%;
   display: block;
   margin: auto;
   border: 3px solid black; /* Adjust the thickness and color of the border as needed */
@@ -817,6 +817,55 @@ footer {
   text-decoration: underline;
 }
 
+.about-page {
+  background-color: #d4ecfa;
+  padding: 2rem;
+}
+
+.about-page .left-side,
+.about-page .right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.about-page .left-side {
+  align-items: flex-end;
+}
+
+.about-page .right-side {
+  align-items: flex-start;
+}
+
+.about-header-image {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid black;
+  box-shadow: 2px 2px 0px 0px black;
+}
+
+.about-text {
+  font-family: 'Futura', Arial, sans-serif;
+  font-size: 18px;
+  color: black;
+  text-align: left;
+  width: 100%;
+}
+
+.about-text .first-title,
+.about-text .book-title {
+  text-align: center;
+}
+
+.about-paragraph {
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 1em;
+  text-align: left;
+}
 
 /* Media Queries */
 
@@ -943,6 +992,13 @@ nav ul li a {
     margin-bottom: 0.5em;
 }
 
+.book-title {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+
 .paragraph {
     font-size: 18px;
     line-height: 1.3;
@@ -1005,7 +1061,7 @@ nav ul li a {
   }
 
   .about-header-image {
-    width: 100%; /* Make the picture take the full width */
+    width: auto; /* Make the picture take the full width */
     height: auto; /* Allow height to adjust to maintain aspect ratio */
   }
 
