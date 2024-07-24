@@ -242,6 +242,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -305,8 +306,8 @@ footer {
 
 .about-header-image {
   display: block;
-  width: 80%;
-  height: 80%;
+  width: 88%;
+  height: auto;
   margin: 0 auto 2rem;
   border: 3px solid black; /* Adjust the thickness and color of the border as needed */
   box-shadow: 2px 2px 0px 0px black;
