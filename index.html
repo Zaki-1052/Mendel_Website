@@ -3,57 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn all about Betsy Mendel: Lifestyle Coach, Author, etc!">
+    <meta name="keywords" content="Betsy Mendel,Betsy,Mendel,Lifestyle Coach,Author,">
+    <meta name="author" content="Betsy Mendel">
   <link href="https://fonts.googleapis.com/css?family=League+Gothic|Lemon|Montserrat|Raleway|Roboto|Futura" rel="stylesheet">
   <link rel="author" href="https://mastodon.social/@Zaki_1052">
-  <link rel="stylesheet" href="public/styles.css">
-  <title>HELLO AWESOMENESS - COMING SOON</title>
-  <style>
-    body {
-      font-family: 'Futura', Arial, sans-serif;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f7eac9;
-    }
-
-    .announcements-page {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .announcements-heading {
-      color: blue;
-      margin: 0.25em 0;
-      line-height: 1.5;
-    }
-
-    h1.announcements-heading {
-      font-size: 4em;
-    }
-
-    h2.announcements-heading {
-      font-size: 3em;
-    }
-
-    h3.announcements-heading {
-      font-size: 2em;
-    }
-
-    p.announcements-heading {
-      font-size: 1.5em;
-    }
-  </style>
+  <link rel="stylesheet" href="../public/styles.css">
+  <title>HELLO AWESOMENESS - MEET BETSY</title>
 </head>
 <body>
-  <div class="announcements-page">
-    <h1 class="announcements-heading">Coming Soon</h1>
-    <h2 class="announcements-heading">HELLO AWESOMENESS</h2>
-    <h3 class="announcements-heading">...Is currently <b>UNDER CONSTRUCTION</b>.</h3>
-    <p class="announcements-heading">Check back soon!</p>
-  </div>
+  <header>
+    <h1>HELLO AWESOMENESS</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">MEET BETSY</a></li>
+        <li><a href="../about/index.html">ABOUT THE BOOK</a></li>
+        <li><a href="../contact/index.html">GET IN TOUCH</a></li>
+      </ul>
+      <div class="hamburger-menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+    </nav>
+  </header>
+  <main>
+  <section class="container home">
+    <div class="left-side">
+      <h2 class="title">Meet Betsy Mendel!</h2>
+      <p class="paragraph">Originally from Atlanta, GA, Betsy moved to California in search of a lifestyle change. Her dedication to health and fitness brought her to Santa Monica, where she quickly immersed herself in activities like biking, hiking, hot yoga, spin classes, and HIIT. 
+        She channeled her passion for a healthy lifestyle into helping others look and feel their best.
+        <p class="paragraph">Her sweet spot is the beach, where she's known to plunge into the cold Pacific Ocean anytime, including the polar plunge on New Year's Day. 
+         Betsy jokes that she might have been a fish in a past life! After a day at the beach, you'll find her sipping an Aperol Spritz at one of her favorite patio bars.</p>
+      <p class="paragraph">Betsy's passion lies in empowering others to break free from mediocrity and embrace an amazingly awesome life!</p>
+    </div>
+    <div class="right-side">
+<img src="../photos/profile_pic.jpeg" alt="Owner photo" class="owner-photo">
+    </div>
+  </section>
+  <div class="social-media">
+    <a href="https://www.facebook.com/westsidebetsy" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook logo" class="social-icon" width="32" height="32">
+    </a>
+    <a href="https://www.instagram.com/betsymendel" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram logo" class="social-icon" width="32" height="32">
+    </a>
+</main>
+  <footer>
+    <div class="designer">
+      <p class="design-caption">Designed by <a href="https://discord.gg/EK6wrPJEQg" target="_blank" rel="noopener noreferrer">Zakir Alibhai</a></p>
+      <p class="git-caption">Hosted on <a href="https://github.com/Zaki-1052/Mendel_Website" target="_blank" rel="noopener noreferrer">GitHub</a></p>    </div>
+    </div>
+  </footer>
+  <script>
+  document.querySelector('.hamburger-menu').addEventListener('click', function () {
+    document.querySelector('nav ul').classList.toggle('show');
+  });
+</script>
 </body>
 </html>
