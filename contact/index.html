@@ -58,6 +58,7 @@
               <input type="hidden" name="form-name" value="contact">
               <input type="text" name="name" placeholder="Name" required>
               <input type="email" name="email" placeholder="Email" required>
+              <textarea name="comment" placeholder="Comment" rows="4" required></textarea>
               <button type="submit" name="submit">Submit</button>
             </form>
             <p class="privacy-statement">Your personal information will never be shared.</p>
@@ -111,6 +112,7 @@
         // Validation
         const name = form.name.value.trim();
         const email = form.email.value.trim();
+        const comment = form.comment.value.trim();
 
         if (!name || !email) {
           formStatus.textContent = "Please fill out all required fields.";
