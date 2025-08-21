@@ -163,6 +163,16 @@ nav ul li a:hover {
   text-align: center;
 }
 
+.title2 {
+  font-family: 'Gothic';
+  font-size: 64px;
+  color: rgb(25, 0, 255);
+  line-height: 1;
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
 .first-title {
   font-family: 'Anton';
   font-size: 36px;
