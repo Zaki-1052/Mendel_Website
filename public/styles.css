@@ -183,6 +183,16 @@ nav ul li a:hover {
   margin-top: 1.5em;
 }
 
+.first-title2 {
+  font-family: 'Anton';
+  font-size: 36px;
+  color: black;
+  line-height: 1;
+  font-weight: bold;
+  text-align: center;
+  //margin-top: 1.5em;
+}
+
 .first-title a {
   text-decoration: none;
   color: black;
@@ -976,7 +986,7 @@ footer {
 
 .media-section-title {
   font-family: 'Gothic';
-  font-size: 36px;
+  font-size: 40px;
   color: rgb(30, 0, 255);
   text-align: center;
   margin-bottom: 0.5rem;
@@ -996,7 +1006,7 @@ footer {
   align-items: center;
   text-align: center;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   width: 100%;
   max-width: 800px;
   margin-left: auto;
