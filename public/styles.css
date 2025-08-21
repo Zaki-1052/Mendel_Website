@@ -251,6 +251,12 @@ footer {
   margin: 0 10px;
 }
 
+.logo2 {
+  width: 80px;
+  height: 80px;
+  margin: 0 10px;
+}
+
 .contact-logo {
   width: 25%;
   height: 25%;
@@ -545,6 +551,14 @@ button {
 .social-icon {
   width: 40px;
   height: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+}
+
+.social-icon2 {
+  width: 60px;
+  height: 60px;
   margin-left: 1rem;
   margin-right: 1rem;
 
