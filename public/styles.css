@@ -967,7 +967,7 @@ footer {
 .media-section-title {
   font-family: 'Gothic';
   font-size: 36px;
-  color: rgb(255, 162, 0);
+  color: rgb(30, 0, 255);
   text-align: center;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -997,7 +997,7 @@ footer {
   max-width: 400px;
   width: 100%;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
