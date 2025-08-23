@@ -163,6 +163,16 @@ nav ul li a:hover {
   text-align: center;
 }
 
+.title2 {
+  font-family: 'Gothic';
+  font-size: 64px;
+  color: rgb(25, 0, 255);
+  line-height: 1;
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
 .first-title {
   font-family: 'Anton';
   font-size: 36px;
@@ -171,6 +181,17 @@ nav ul li a:hover {
   font-weight: bold;
   text-align: center;
   margin-top: 1.5em;
+}
+
+.first-title2 {
+  font-family: 'Anton';
+  font-size: 36px;
+  color: black;
+  line-height: 1;
+  font-weight: bold;
+  text-align: center;
+  /* margin-top: 1.5em; */
+  margin-bottom: 1em;
 }
 
 .first-title a {
@@ -248,6 +269,12 @@ footer {
 .logo {
   width: 100px;
   height: 100px;
+  margin: 0 10px;
+}
+
+.logo2 {
+  width: 80px;
+  height: 80px;
   margin: 0 10px;
 }
 
@@ -545,6 +572,14 @@ button {
 .social-icon {
   width: 40px;
   height: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+}
+
+.social-icon2 {
+  width: 60px;
+  height: 60px;
   margin-left: 1rem;
   margin-right: 1rem;
 
@@ -879,6 +914,141 @@ footer {
   text-align: left;
 }
 
+/* Media Showcase Styles */
+.media-showcase-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.media-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.media-logo {
+  max-width: 200px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.media-logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin: 1rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #000;
+}
+
+.media-description {
+  font-family: 'Futura', sans-serif;
+  font-size: 16px;
+  color: black;
+  line-height: 1.4;
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+.media-section-title {
+  font-family: 'Gothic';
+  font-size: 40px;
+  color: rgb(30, 0, 255);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.print-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.featured-media-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-media-logo {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.featured-media-logo:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.atlanta-media-graphic {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.atlanta-media-graphic:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.video-media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
 /* Media Queries */
 
 
@@ -1139,6 +1309,51 @@ nav ul li a {
   text-align: center;
 }
 
+/* Media Page Mobile Styles */
+.media-grid {
+  gap: 2rem;
+}
+
+.media-item {
+  padding: 1.5rem;
+}
+
+.media-logo {
+  max-width: 150px;
+  max-height: 60px;
+}
+
+.media-section-title {
+  font-size: 28px;
+}
+
+.media-description {
+  font-size: 14px;
+}
+
+.print-media-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.featured-media-item {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.featured-media-logo {
+  max-width: 300px;
+}
+
+.atlanta-media-graphic {
+  max-width: 400px;
+}
+
+.video-media-grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -1184,6 +1399,12 @@ nav ul li a {
     margin-left: 62px;
     column-width: 0.35;
   }
+
+/* Media Page Tablet Styles */
+.video-media-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
 
 }
 
