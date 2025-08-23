@@ -82,8 +82,8 @@
             <img src="../photos/11Alive_NBC_Color.png" alt="11Alive NBC Logo" class="media-logo">
           </a>
           <div class="video-container">
-            <video controls preload="metadata">
-              <source src="11alive.mp4" type="video/mp4">
+            <video controls preload="metadata" data-src="11alive.mp4" class="lazy-video">
+              <source type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -95,8 +95,8 @@
             <img src="../photos/WSFL_logo_2020.svg" alt="WSFL TV Logo" class="media-logo">
           </a>
           <div class="video-container">
-            <video controls preload="metadata">
-              <source src="wsfl.mp4" type="video/mp4">
+            <video controls preload="metadata" data-src="wsfl.mp4" class="lazy-video">
+              <source type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -108,8 +108,8 @@
             <img src="../photos/cbs17.png" alt="CBS17 Logo" class="media-logo">
           </a>
           <div class="video-container">
-            <video controls preload="metadata">
-              <source src="csb17.mp4" type="video/mp4">
+            <video controls preload="metadata" data-src="csb17.mp4" class="lazy-video">
+              <source type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -144,6 +144,28 @@
    <script>
   document.querySelector('.hamburger-menu').addEventListener('click', function () {
     document.querySelector('nav ul').classList.toggle('show');
+  });
+
+  // Lazy loading for videos
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        const source = video.querySelector('source');
+        if (video.dataset.src && !source.src) {
+          source.src = video.dataset.src;
+          video.load();
+          videoObserver.unobserve(video);
+        }
+      }
+    });
+  }, {
+    rootMargin: '200px' // Start loading 200px before video comes into view
+  });
+
+  // Observe all lazy videos
+  document.querySelectorAll('.lazy-video').forEach(video => {
+    videoObserver.observe(video);
   });
 </script>
 </body>
