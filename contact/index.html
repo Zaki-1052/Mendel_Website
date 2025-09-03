@@ -115,9 +115,9 @@
         submissionCount = 0; // Update the variable after reset
       }
 
-      // Track suspicious activity
-      let hasSubmittedLink = false;
-      let attempts = 0;
+      // Track suspicious activity (persist in localStorage)
+      let hasSubmittedLink = localStorage.getItem('hasSubmittedLink') === 'true';
+      let attempts = parseInt(localStorage.getItem('suspiciousAttempts') || '0');
 
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -155,6 +155,8 @@
           errors.comment = "Please do not include links in your message";
           hasSubmittedLink = true;
           attempts++;
+          localStorage.setItem('hasSubmittedLink', 'true');
+          localStorage.setItem('suspiciousAttempts', attempts.toString());
           showError(errors.comment);
           return;
         }
@@ -190,8 +192,8 @@
 
           if (response.ok) {
             // Update submission count
-            const currentCount = parseInt(localStorage.getItem('formSubmissionCount') || '0');
-            localStorage.setItem('formSubmissionCount', (currentCount + 1).toString());
+            submissionCount++;
+            localStorage.setItem('formSubmissionCount', submissionCount.toString());
             localStorage.setItem('lastSubmitTime', Date.now().toString());
 
             showSuccess("Thanks for your submission!");
