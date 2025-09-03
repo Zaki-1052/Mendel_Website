@@ -108,10 +108,11 @@
       const formStatus = document.getElementById('formStatus');
       
       // Add submission tracking
-      const submissionCount = parseInt(localStorage.getItem('formSubmissionCount') || '0');
+      let submissionCount = parseInt(localStorage.getItem('formSubmissionCount') || '0');
       const lastSubmitTime = localStorage.getItem('lastSubmitTime');
       if (lastSubmitTime && (Date.now() - parseInt(lastSubmitTime)) > 86400000) {
         localStorage.setItem('formSubmissionCount', '0');
+        submissionCount = 0; // Update the variable after reset
       }
 
       // Track suspicious activity
@@ -211,8 +212,8 @@
       function containsLinks(text) {
         const linkPatterns = [
           /https?:\/\/[^\s]+/i,
-          /www\.[^\s]+/i,
-          /[^\s]+\.[a-z]{2,}/i
+          /www\.[^\s]+\.[a-z]{2,}/i,
+          /\b[a-z0-9][a-z0-9\-]*[a-z0-9]*\.[a-z]{2,}\b(?!\.\s*[A-Z])/i
         ];
         return linkPatterns.some(pattern => pattern.test(text));
       }
