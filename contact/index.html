@@ -106,31 +106,83 @@
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.getElementById('contactForm');
       const formStatus = document.getElementById('formStatus');
+      
+      // Add submission tracking
+      let submissionCount = parseInt(localStorage.getItem('formSubmissionCount') || '0');
+      const lastSubmitTime = localStorage.getItem('lastSubmitTime');
+      if (lastSubmitTime && (Date.now() - parseInt(lastSubmitTime)) > 86400000) {
+        localStorage.setItem('formSubmissionCount', '0');
+        submissionCount = 0; // Update the variable after reset
+      }
+
+      // Track suspicious activity (persist in localStorage)
+      let hasSubmittedLink = localStorage.getItem('hasSubmittedLink') === 'true';
+      let attempts = parseInt(localStorage.getItem('suspiciousAttempts') || '0');
 
       form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        // Validation
+        // Enhanced Validation
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const comment = form.comment.value.trim();
+        let errors = {};
 
-        if (!name || !email) {
-          formStatus.textContent = "Please fill out all required fields.";
-          formStatus.style.color = "red";
+        // Check submission limits
+        if (submissionCount >= 5) {
+          showError("Maximum daily submission limit reached. Please try again tomorrow.");
           return;
         }
 
-        if (!validateEmail(email)) {
-          formStatus.textContent = "Invalid email format.";
-          formStatus.style.color = "red";
+        // Check suspicious activity
+        if (hasSubmittedLink && attempts > 1) {
+          showError("You have been temporarily blocked due to suspicious activity.");
           return;
         }
 
-        // Form Data
+        // Required fields validation
+        if (!name) errors.name = "Name is required";
+        if (!email) errors.email = "Email is required";
+        if (!comment) errors.comment = "Message is required";
+        
+        // Enhanced message validation
+        if (comment.length < 10) {
+          errors.comment = "Message must be at least 10 characters long";
+        }
+        
+        // Link detection
+        if (containsLinks(comment)) {
+          errors.comment = "Please do not include links in your message";
+          hasSubmittedLink = true;
+          attempts++;
+          localStorage.setItem('hasSubmittedLink', 'true');
+          localStorage.setItem('suspiciousAttempts', attempts.toString());
+          showError(errors.comment);
+          return;
+        }
+
+        // Email detection in message
+        if (containsEmails(comment)) {
+          errors.comment = "Please do not include email addresses in the message field";
+          showError(errors.comment);
+          return;
+        }
+
+        // Email format validation
+        if (email && !validateEmail(email)) {
+          errors.email = "Invalid email format";
+        }
+
+        // Check if there are any errors
+        if (Object.keys(errors).length > 0) {
+          const errorMessage = Object.values(errors).join(", ");
+          showError(errorMessage);
+          return;
+        }
+
+        // Form submission (adapted for Netlify)
         const formData = new FormData(form);
 
-        // Submit the form
         try {
           const response = await fetch('/', {
             method: 'POST',
@@ -139,22 +191,48 @@
           });
 
           if (response.ok) {
-            formStatus.textContent = "Thanks for your submission!";
-            formStatus.style.color = "green";
+            // Update submission count
+            submissionCount++;
+            localStorage.setItem('formSubmissionCount', submissionCount.toString());
+            localStorage.setItem('lastSubmitTime', Date.now().toString());
+
+            showSuccess("Thanks for your submission!");
             form.reset();
           } else {
-            formStatus.textContent = "Oops! There was a problem submitting your form";
-            formStatus.style.color = "red";
+            showError("Oops! There was a problem submitting your form");
           }
         } catch (error) {
-          formStatus.textContent = "Oops! There was a problem submitting your form";
-          formStatus.style.color = "red";
+          showError("Oops! There was a problem submitting your form");
         }
       });
 
+      // Helper Functions
       function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function containsLinks(text) {
+        const linkPatterns = [
+          /https?:\/\/[^\s]+/i,
+          /www\.[^\s]+\.[a-z]{2,}/i,
+          /\b[a-z0-9][a-z0-9\-]*[a-z0-9]*\.[a-z]{2,}\b(?!\.\s*[A-Z])/i
+        ];
+        return linkPatterns.some(pattern => pattern.test(text));
+      }
+
+      function containsEmails(text) {
+        const emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+        return emailPattern.test(text);
+      }
+
+      function showError(message) {
+        formStatus.textContent = message;
+        formStatus.style.color = "red";
+      }
+
+      function showSuccess(message) {
+        formStatus.textContent = message;
+        formStatus.style.color = "green";
       }
     });
   </script>
